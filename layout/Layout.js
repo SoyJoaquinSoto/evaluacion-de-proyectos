@@ -1,17 +1,20 @@
+import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
+import Body from "./Body";
 import Header from "./Header";
+import SideBar from "./SideBar";
 
 function Layout({ children }) {
-	return (
-		<div className="flex flex-col w-full">
-			<Head>
-				<title>Evaluación de proyectos</title>
-				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
-			</Head>
+	const router = useRouter();
 
+	return (
+		<div>
 			<Header />
 
-			<div>{children}</div>
+			<div className="flex gap-12 w-full h-screen pt-16 -mt-16">
+				{router.pathname == "/" ? <div className="w-16"> </div> : <SideBar />}
+				<Body>{children}</Body>
+			</div>
 		</div>
 	);
 }
