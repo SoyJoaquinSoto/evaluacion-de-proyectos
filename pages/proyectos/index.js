@@ -1,7 +1,7 @@
-import Dashboard from "../components/Dashboard";
-import div from "../layout/Layout";
+import Dashboard from "../../components/Dashboard";
+import axios from "axios";
 
-export default function Home() {
+export default function Proyectos({ proyectos }) {
 	return (
 		<div className="flex items-top gap-4">
 			<div className="mt-3 bg-transparent border-4 border-gray-400 rounded-full h-4 w-4 flex justify-center items-center"></div>
@@ -20,7 +20,7 @@ export default function Home() {
 				</div>
 
 				<div>
-					<Dashboard />
+					<Dashboard proyectos={proyectos} />
 				</div>
 			</div>
 		</div>
@@ -28,10 +28,19 @@ export default function Home() {
 }
 
 export async function getServerSideProps(context) {
+	const res = await axios.get(`http://localhost:3000/api/proyectos/`);
+
+	const proyectos = res.data;
+
+	if (!proyectos) {
+		return {
+			notFound: true,
+		};
+	}
+
 	return {
-		redirect: {
-			destination: "/proyectos",
-			permanent: false,
+		props: {
+			proyectos,
 		},
 	};
 }

@@ -12,7 +12,11 @@ function Layout({ children }) {
 			<Header />
 
 			<div className="flex gap-12 w-full h-screen pt-16 -mt-16">
-				{router.pathname == "/" ? <div className="w-16"> </div> : <SideBar />}
+				{router.pathname == "/proyectos" ? (
+					<div className="w-16"> </div>
+				) : (
+					<SideBar />
+				)}
 				<Body>{children}</Body>
 			</div>
 		</div>
