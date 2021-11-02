@@ -8,24 +8,22 @@ const SideBar = () => {
 	const { id, capitulo } = router.query;
 
 	const [proyecto, setProyecto] = useState();
-	const [secciones, setSecciones] = useState([
-		{ nombre: "Vista general", id: "" },
-	]);
+	const [secciones, setSecciones] = useState([,]);
 
 	useEffect(async () => {
-		const res = await axios.get(`http://localhost:3000/api/proyectos/${id}`);
+		const res = await axios.get(`htttp://localhost:3000/api/proyectos/${id}`);
 		setProyecto(res.data.data.proyecto);
 	}, []);
 
 	useEffect(() => {
 		if (proyecto?.capitulos) {
-			setSecciones(
-				...secciones,
+			setSecciones([
+				{ nombre: "Vista general", id: "" },
 				...proyecto.capitulos.map((cap) => ({
 					nombre: cap.nombre,
 					id: cap._id.toString(),
-				}))
-			);
+				})),
+			]);
 		}
 	}, [proyecto]);
 
@@ -57,24 +55,28 @@ const SideBar = () => {
 				secciones.map((seccion) => {
 					let esActivo = false;
 
-					if (seccion?.ruta === "/" && !id && !capitulo) {
+					if (seccion?.id === "" && !capitulo) {
 						esActivo = true;
 					}
 
-					if (capitulo === seccion?.ruta) {
+					if (capitulo === seccion?.id) {
 						esActivo = true;
 					}
 
 					return (
 						<li
 							key={seccion.nombre}
-							className="h-16 flex justify-center items-center text-3xl font-thin hover:bg-blue-100 cursor-pointer"
+							className="h-16 w-full flex justify-center items-center text-3xl font-thin hover:bg-blue-100 cursor-pointer"
 							style={{
 								backgroundColor: esActivo ? "rgb(59, 130, 246, 1)" : "",
 								color: esActivo ? "white" : "",
 							}}
 						>
-							{seccion.nombre[0]}
+							<button className="h-full w-full">
+								<Link href={`/proyectos/${id}/${seccion.id}`}>
+									{seccion.nombre[0]}
+								</Link>
+							</button>
 						</li>
 					);
 				})}
