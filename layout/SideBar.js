@@ -1,8 +1,17 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const SideBar = ({ proyecto }) => {
+const SideBar = () => {
 	const router = useRouter();
+	const { id, capitulo } = router.query;
+
+	const [proyecto, setProyecto] = useState({});
+
+	useEffect(async () => {
+		const res = await axios.get(`http://localhost:3000/api/proyectos/${id}`);
+		setProyecto(res.data.data.proyecto);
+	}, []);
 
 	// const secciones = [
 	// 	{
@@ -19,7 +28,13 @@ const SideBar = ({ proyecto }) => {
 	// 	},
 	// ];
 
-	const secciones = proyecto.capitulos.map()
+	const secciones = [
+		{ nombre: "Vista general", id: "" },
+		...proyecto.capitulos.map((cap) => ({
+			nombre: cap.nombre,
+			id: cap._id.toString(),
+		})),
+	];
 
 	return (
 		<ul className="flex flex-none flex-col w-16 overflow-y-auto relative border-r-2 border-gray-300">
@@ -30,12 +45,11 @@ const SideBar = ({ proyecto }) => {
 					</Link>
 				</button>
 			</li>
-			{proyecto &&
-				proyecto.capitulos.map((capitulo) => {
-					const rutas = router.pathname.split("/");
+			{secciones &&
+				secciones.map((seccion) => {
 					let esActivo = false;
 
-					if (rutas.length === 3 && seccion.ruta === "/") {
+					if (seccion.ruta === "/") {
 						esActivo = true;
 					}
 
@@ -61,26 +75,5 @@ const SideBar = ({ proyecto }) => {
 		</ul>
 	);
 };
-
-export async function getServerSideProps(context) {
-	const { id } = context.query;
-
-	const res = await axios.get(`http://localhost:3000/api/proyectos/${id}`);
-
-	const respuesta = res.data.data;
-	console.log(respuesta);
-
-	if (!respuesta) {
-		return {
-			notFound: true,
-		};
-	}
-
-	return {
-		props: {
-			...respuesta,
-		},
-	};
-}
 
 export default SideBar;
