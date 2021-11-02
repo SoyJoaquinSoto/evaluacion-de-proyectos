@@ -56,15 +56,13 @@ const SideBar = () => {
 				secciones.map((seccion) => {
 					let esActivo = false;
 
-					if (seccion.ruta === "/") {
+					if (seccion.ruta === "/" && !id && !capitulo) {
 						esActivo = true;
 					}
 
-					// if (rutas.length === 4) {
-					// 	if (rutas[3] === capitulo._id.toString()) {
-					// 		esActivo = true;
-					// 	}
-					// }
+					if (capitulo === seccion.ruta) {
+						esActivo = true;
+					}
 
 					return (
 						<li
