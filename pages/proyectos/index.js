@@ -21,12 +21,9 @@ export default function Proyectos({ proyectos }) {
 			showLoaderOnConfirm: true,
 			preConfirm: async (nombre) => {
 				try {
-					const result = await axios.post(
-						`${process.env.RUTA || "http://localhost:3000"}/api/proyectos`,
-						{
-							nombre,
-						}
-					);
+					const result = await axios.post(`${ruta_server}/api/proyectos`, {
+						nombre,
+					});
 					id = result.data.data._id;
 					return result;
 				} catch (error) {
@@ -78,9 +75,7 @@ export default function Proyectos({ proyectos }) {
 }
 
 export async function getServerSideProps(context) {
-	const res = await axios.get(
-		`${process.env.RUTA || "http://localhost:3000"}/api/proyectos/`
-	);
+	const res = await axios.get(`${ruta_server}/api/proyectos/`);
 
 	const proyectos = res.data;
 

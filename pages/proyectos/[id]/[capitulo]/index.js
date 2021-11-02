@@ -7,9 +7,7 @@ import ruta_server from "../../../../helpers/ruta";
 const guardarCalificaciones = async (id, capitulo, values) => {
 	try {
 		await axios.put(
-			`${
-				process.env.RUTA || "http://localhost:3000"
-			}/api/proyectos/${id}/${capitulo}`,
+			`${ruta_server}/api/proyectos/${id}/${capitulo}`,
 			{
 				...values,
 			}
@@ -144,9 +142,7 @@ export async function getServerSideProps(context) {
 	const { id, capitulo } = context.query;
 
 	const res = await axios.get(
-		`${
-			process.env.RUTA || "http://localhost:3000"
-		}/api/proyectos/${id}/${capitulo}`
+		`${ruta_server}/api/proyectos/${id}/${capitulo}`
 	);
 
 	const respuesta = res.data.data;
