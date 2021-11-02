@@ -6,12 +6,27 @@ const SideBar = () => {
 	const router = useRouter();
 	const { id, capitulo } = router.query;
 
-	const [proyecto, setProyecto] = useState({});
+	const [proyecto, setProyecto] = useState();
+	const [secciones, setSecciones] = useState([
+		{ nombre: "Vista general", id: "" },
+	]);
 
 	useEffect(async () => {
 		const res = await axios.get(`http://localhost:3000/api/proyectos/${id}`);
 		setProyecto(res.data.data.proyecto);
 	}, []);
+
+	useEffect(() => {
+		if (proyecto?.capitulos) {
+			setSecciones(
+				...secciones,
+				...proyecto.capitulos.map((cap) => ({
+					nombre: cap.nombre,
+					id: cap._id.toString(),
+				}))
+			);
+		}
+	}, [proyecto]);
 
 	// const secciones = [
 	// 	{
@@ -27,14 +42,6 @@ const SideBar = () => {
 	// 		ruta: "/otro-capitulo",
 	// 	},
 	// ];
-
-	const secciones = [
-		{ nombre: "Vista general", id: "" },
-		...proyecto.capitulos.map((cap) => ({
-			nombre: cap.nombre,
-			id: cap._id.toString(),
-		})),
-	];
 
 	return (
 		<ul className="flex flex-none flex-col w-16 overflow-y-auto relative border-r-2 border-gray-300">
