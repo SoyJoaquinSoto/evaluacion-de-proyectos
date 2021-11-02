@@ -7,6 +7,7 @@ import {
 } from "../../../helpers/calificaciones";
 import CapituloCard from "../../../components/CapituloCard";
 import RecomendacionesCard from "../../../components/RecomendacionesCard";
+import ruta_server from "../../../helpers/ruta";
 
 const Proyecto = ({ proyecto, capitulos }) => {
 	return (
@@ -73,9 +74,9 @@ const Proyecto = ({ proyecto, capitulos }) => {
 export async function getServerSideProps(context) {
 	const { id } = context.query;
 
-	const res = await axios.get(`http://localhost:3000/api/proyectos/${id}`);
+	const res = await axios.get(`${ruta_server}/api/proyectos/${id}`);
 
-	const res2 = await axios.get(`http://localhost:3000/api/capitulos`);
+	const res2 = await axios.get(`${ruta_server}/api/capitulos`);
 
 	const proyecto = res.data.data.proyecto;
 	const capitulos = res2.data.data;

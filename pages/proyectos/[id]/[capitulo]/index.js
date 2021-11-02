@@ -2,10 +2,11 @@ import axios from "axios";
 import { Field, Form, Formik, FieldArray } from "formik";
 import * as cap from "/indicadores.json";
 import { useRouter } from "next/router";
+import ruta_server from "../../../../helpers/ruta";
 
 const guardarCalificaciones = async (id, capitulo, values) => {
 	try {
-		await axios.put(`http://localhost:3000/api/proyectos/${id}/${capitulo}`, {
+		await axios.put(`${ruta_server}/api/proyectos/${id}/${capitulo}`, {
 			...values,
 		});
 	} catch (e) {
@@ -137,9 +138,7 @@ const Proyecto = ({ proyecto, capitulo }) => {
 export async function getServerSideProps(context) {
 	const { id, capitulo } = context.query;
 
-	const res = await axios.get(
-		`http://localhost:3000/api/proyectos/${id}/${capitulo}`
-	);
+	const res = await axios.get(`${ruta_server}/api/proyectos/${id}/${capitulo}`);
 
 	const respuesta = res.data.data;
 

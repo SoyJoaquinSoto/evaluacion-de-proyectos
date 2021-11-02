@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ruta_server from "../helpers/ruta";
 
 const SideBar = () => {
 	const router = useRouter();
@@ -11,7 +12,7 @@ const SideBar = () => {
 	const [secciones, setSecciones] = useState([,]);
 
 	useEffect(async () => {
-		const res = await axios.get(`htttp://localhost:3000/api/proyectos/${id}`);
+		const res = await axios.get(`${ruta_server}/api/proyectos/${id}`);
 		setProyecto(res.data.data.proyecto);
 	}, []);
 

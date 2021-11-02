@@ -2,6 +2,7 @@ import Dashboard from "../../components/Dashboard";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useRouter } from "next/router";
+import ruta_server from "../../helpers/ruta";
 
 export default function Proyectos({ proyectos }) {
 	const router = useRouter();
@@ -20,12 +21,9 @@ export default function Proyectos({ proyectos }) {
 			showLoaderOnConfirm: true,
 			preConfirm: async (nombre) => {
 				try {
-					const result = await axios.post(
-						`http://localhost:3000/api/proyectos`,
-						{
-							nombre,
-						}
-					);
+					const result = await axios.post(`${ruta_server}/api/proyectos`, {
+						nombre,
+					});
 					id = result.data.data._id;
 					return result;
 				} catch (error) {
@@ -77,7 +75,7 @@ export default function Proyectos({ proyectos }) {
 }
 
 export async function getServerSideProps(context) {
-	const res = await axios.get(`http://localhost:3000/api/proyectos/`);
+	const res = await axios.get(`${ruta_server}/api/proyectos/`);
 
 	const proyectos = res.data;
 
