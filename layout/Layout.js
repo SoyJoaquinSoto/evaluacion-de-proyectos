@@ -9,9 +9,9 @@ function Layout({ children }) {
 
 	return (
 		<div>
-			<Header />
+			{/* <Header /> */}
 
-			<div className="flex gap-12 w-full h-screen pt-16 -mt-16">
+			<div className="flex gap-12 w-full h-screen">
 				{router.pathname == "/proyectos" ? (
 					<div className="w-16"> </div>
 				) : (

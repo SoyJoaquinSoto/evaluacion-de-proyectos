@@ -1,8 +1,14 @@
 import axios from "axios";
-import { ResponsiveRadar } from "@nivo/radar";
 import Telaraña from "../../../components/Telaraña";
+import {
+	cal_capitulo,
+	cal_max,
+	cal_proyecto,
+} from "../../../helpers/calificaciones";
+import CapituloCard from "../../../components/CapituloCard";
+import RecomendacionesCard from "../../../components/RecomendacionesCard";
 
-const Proyecto = ({ proyecto }) => {
+const Proyecto = ({ proyecto, capitulos }) => {
 	return (
 		<div className="flex items-top gap-4">
 			<div
@@ -11,53 +17,52 @@ const Proyecto = ({ proyecto }) => {
 			></div>
 
 			<div className="w-full flex flex-col gap-6">
-				<h1 className="text-3xl">{proyecto.nombre}</h1>
+				<div className="flex flex-col gap-2 w-full">
+					<h1 className="text-3xl">{proyecto.nombre}</h1>
+					<div className="flex justify-between w-full">
+						<p className="text-gray-400">
+							calificación: {`${cal_proyecto(proyecto)}/${cal_max(capitulos)}`}
+						</p>
+					</div>
+				</div>
 
 				<div className="flex flex-col gap-4">
 					<div className="flex gap-4">
-						<div className="w-1/2 h-96">
+						<div className="w-2/5 h-96">
 							<Telaraña
-								data={[
-									{
-										taste: "fruity",
-										chardonay: 52,
-										carmenere: 117,
-										syrah: 115,
-									},
-									{
-										taste: "bitter",
-										chardonay: 56,
-										carmenere: 77,
-										syrah: 48,
-									},
-									{
-										taste: "heavy",
-										chardonay: 78,
-										carmenere: 117,
-										syrah: 106,
-									},
-									{
-										taste: "strong",
-										chardonay: 43,
-										carmenere: 52,
-										syrah: 75,
-									},
-									{
-										taste: "sunny",
-										chardonay: 48,
-										carmenere: 26,
-										syrah: 111,
-									},
-								]}
+								data={proyecto.capitulos.map((capitulo) => ({
+									nombre: capitulo.nombre,
+									calificacion: cal_capitulo(capitulo),
+								}))}
 							/>
 						</div>
-						<div>
+						<div className="flex flex-col gap-2 w-3/5">
 							<h2 className="text-2xl">Capítulos</h2>
+							<div className="grid grid-cols-2 grid-flow-row gap-3 w-full">
+								{proyecto.capitulos.map((capitulo, index) => {
+									return (
+										<CapituloCard
+											key={capitulo.nombre}
+											capitulo_real={capitulo}
+											capitulo_teorico={capitulos[index]}
+										/>
+									);
+								})}
+							</div>
 						</div>
 					</div>
 
-					<div>
+					<div className="w-full flex flex-col gap-4">
 						<h2 className="text-2xl">Recomendaciones</h2>
+						{proyecto.capitulos.map((capitulo, index) => {
+							return (
+								<RecomendacionesCard
+									key={capitulo.nombre}
+									capitulo_real={capitulo}
+									capitulo_teorico={capitulos[index]}
+								/>
+							);
+						})}
 					</div>
 				</div>
 			</div>
@@ -70,7 +75,10 @@ export async function getServerSideProps(context) {
 
 	const res = await axios.get(`http://localhost:3000/api/proyectos/${id}`);
 
-	const proyecto = res.data;
+	const res2 = await axios.get(`http://localhost:3000/api/capitulos`);
+
+	const proyecto = res.data.data.proyecto;
+	const capitulos = res2.data.data;
 
 	if (!proyecto) {
 		return {
@@ -81,6 +89,7 @@ export async function getServerSideProps(context) {
 	return {
 		props: {
 			proyecto,
+			capitulos,
 		},
 	};
 }

@@ -6,13 +6,15 @@ function Dashboard({ proyectos }) {
 			{proyectos &&
 				proyectos.map((proyecto) => (
 					<button
-						key={proyecto.id}
+						key={proyecto._id}
 						className={`h-56 rounded-lg transition duration-75 hover:scale-95 hover:rotate-2 cursor-pointer`}
 						style={{ backgroundColor: `rgba(${proyecto.color})` }}
 					>
-						<Link href={`proyectos/${proyecto.id}`}>
+						<Link href={`proyectos/${proyecto._id}`}>
 							<div className="flex flex-col justify-center items-center gap-4 text-center">
-								<h3 className="text-6xl font-thin">{proyecto.nombre[0]}</h3>
+								<h3 className="text-6xl font-thin">
+									{proyecto.nombre[0].toUpperCase()}
+								</h3>
 								<p className="font-thin">{proyecto.nombre}</p>
 							</div>
 						</Link>

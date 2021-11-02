@@ -1,0 +1,320 @@
+{
+	"nombre": "Gestión de recursos del proyecto",
+	"indicadores": [
+		{
+			"nombre": "Equipo humano",
+			"subindicadores": [
+				{
+					"nombre": "Organigrama de la empresa",
+					"descripcion": "Indica representación gráfica de como se estructura la empresa o la institución, muestra las relaciones entre sus diferentes partes, funciones, areas, personas.",
+					"recomendacion": "Debe de contemplarse realizar el diagrama de la estructura organizacional de la empresa ya que se necesita saber como va a estar la organización de la misma y como se distribuyen las diferentes áreas o cargos.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Recursos humanos a involucrar",
+					"descripcion": "Indica la descripción de los requerimientos humanos que se necesita para poder llevar a cabo el proyecto.",
+					"recomendacion": "Es importante considerar los recursos humanos a involucrar ya que finalmente son los que desempeñaran su cargo de acuerdo al rol que van a tener en la organizaicón o los procesos y así generar ganacias.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Capacitación humana",
+					"descripcion": "Indica la especificación de las competencias que tendrán las personas en el proyecto, como serán los requerimientos técnicos, o como se harán planes de capacitación.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				},
+				{
+					"nombre": "Habilidades interpersonales y de equipo",
+					"descripcion": "Indica la parte que especifica las habilidades que tendra cada miembro requerido en el proyecto o del equipo o los equipos conformados.",
+					"recomendacion": "Se debe de considerar las habilidades en las que sobresale cada miembro del equipo o de la organización con el fin de estar seguros que las competencias que se necesitan para desarrollar el proyecto van a estar cubiertas.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Reparto de las tareas a los miembros del equipo",
+					"descripcion": "Indica la repartición de las tareas o funciones a realizar en el proyecto a los miebros del equipo.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				}
+			]
+		},
+		{
+			"nombre": "Juicio de experto",
+			"subindicadores": [
+				{
+					"nombre": "Negociación de mejores recursos",
+					"descripcion": "Indica cual es la mejor elección posible de los recursos a considerar en el proyecto.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				},
+
+				{
+					"nombre": "Gestión de talento",
+					"descripcion": "Indica como se va a gestionar, administrar la parte del talento humano para los reclutamientos del personal humano.",
+					"recomendacion": "",
+					"relevancia": 2,
+					"calificacion_max": 3,
+					"limite": 0
+				},
+				{
+					"nombre": "Determinación de requisitos",
+					"descripcion": "Indica como se lleva a cabo la toma de requerimientos para cumplir con el desarrollo del proyecto.",
+					"recomendacion": "Se debe de llevar a cabo una buena determinación de todos los requerimientos que va a tener el proyecto con el fin de estar seguro de lo que se necesita y a partir de ese punto poder generar propuestas de inversión o estimaciones de costos, personal necesairo, entre otros.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Estimación de los plazos de entrega",
+					"descripcion": "Indica las diferentes estimaciones de los plazos de entrega, que puede incluir las fechas, porcentajes de avances del desarrollo del proyecto.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				},
+				{
+					"nombre": "Identificación de los riesgos",
+					"descripcion": "Indica como se llevará a cabo la identificación, gestión de los riesgos que se produzcan en el proyecto para poder responder ante estas ocurrencias.",
+					"recomendacion": "Es muy importante contemplar los diferentes riesgos a los que está sometido el proyecto ya que al todavía no implementarlo debemos que comtemplar todo lo que podría suceder en un entorno de incertidumbre y saber que existen riesgos de fracaso o perdidas para el proyecto.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Proveedores y logistica",
+					"descripcion": "Indica la manera en que se hace la elección de los proveedores o la operación de la logística necesaria.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				},
+				{
+					"nombre": "Cumplimiento de las regulaciones",
+					"descripcion": "Indica la manera en que el proyecto cumplirá con las regulaciones actuales de acuerdo al giro del proyecto.",
+					"recomendacion": "Tomar en cuenta el cumplimiento de las regulaciones con el fin de poder evitar problemas legales o de incumplimiento de alguna ley o registro ante algun organismo y tambien se evita estar expuesto a copias o plagios del proyecto.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				}
+			]
+		},
+		{
+			"nombre": "Dirección del proyecto",
+			"subindicadores": [
+				{
+					"nombre": "Linea base del alcance",
+					"descripcion": "Indica cual es el alcance de acuerdo a las fechas establecidas como diferentes entregas el proyecto.",
+					"recomendacion": "Comtemplar determinar el alcance ya que es esencial a la hora de crear un proyecto, con ello podremos saber que es todo lo que vamos a comtemplar, hasta donde va a quedar delimitado nuestro proyecto en cuestión de presupuesto, funcines, fechas, entre otros.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				}
+			]
+		},
+		{
+			"nombre": "Documentos del proyecto",
+			"subindicadores": [
+				{
+					"nombre": "Contrato del proyecto",
+					"descripcion": "Indica el contrato del proyecto.",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+
+				{
+					"nombre": "Recursos humanos",
+					"descripcion": "Indica toda la documentación de los recursos humanos.",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+				{
+					"nombre": "Registro de interesados",
+					"descripcion": "Indica quienes son los interesados en el proyecto o a quienes va dirigido.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				},
+				{
+					"nombre": "Requerimientos de recursos humanos",
+					"descripcion": "Indica todos los requerimientos relacionados al personal humano que se requiere para el proyecto.",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+				{
+					"nombre": "Requerimientos de software",
+					"descripcion": "Indica todos los requerimientos necesarios para la parte de software en el proyecto, aplicaciones, sistemas, programas, licencias, etc.",
+					"recomendacion": "Definir los requerimientos de software es una parte fundamental hoy en día en la formulación de un proyecto y posteriormente en su implementación, al considerar requisitos de software nos adentramos más hacia una transformación digital pudiendo llegar a más usuarios de los que normalmente se llega a alcanzar con las técnicas tradicionales.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Requerimientos de hardware",
+					"descripcion": "Indica todos los requerimientos necesarios para la parte de hardware en el proyecto, sean computadoras, mouse, teclado, monitores, procesadores, discos duros, memorias RAM, etc.",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+				{
+					"nombre": "Propuesta de inversión",
+					"descripcion": "Indica el documento de la inversión requerida en el proyecto, como se llevara a cabo, por quienes, etc.",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+				{
+					"nombre": "Diseño de prototipos",
+					"descripcion": "Indica la documentación del diseño de los prototipos del proyecto, sean pantallas, simulaciones, prototipos físicos, etc.",
+					"recomendacion": "El definir un prototipo le permite ver a los posibles interesados en el proyecto como va a estar diseñado, como se espera que se vea el producto al hacerlo una realidad, un prototipo es de suma importancia, ya que este al convertirse en un producto minimamente viable este ya puede comercializarse y sobre este mismo, ir mejorando diferentes aspectos que satisfagan aún más las necesidades de los clientes.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Esquematización de procesos",
+					"descripcion": "Indica la documentación de los diferentes procesos que tendrá que llevar a cabo la empresa, el proyecto, para cumplir con sus objetivos y saber como será el flujo de trabajo.",
+					"recomendacion": "Tomar en cuenta la esquematización de los procesos que se llevan a cabo en el flujo del proyecto, esto permitirá saber exactamente el flujo de información y trabajo a través de los distintos procesos además de poder identificar de mejor manera oportunidades de mejora en estos o cambios futuros.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				}
+			]
+		},
+		{
+			"nombre": "Representación de datos",
+			"subindicadores": [
+				{
+					"nombre": "Diagrama jerarquico (Estructura de desglose de trabajo EDT/WBS)",
+					"descripcion": "Indica los diagramas de flujo para los distintos procesos que seguirá el proyecto en sus áreas, objetivos, etc.",
+					"recomendacion": "Se debe de considerar realizar el EDT del proyecto ya que nos permite ver graficamente y descriptivamente la forma de trabajo del proyecto ademas de la organización de las tareas involucradas de acuerdo a los distintos niveles, con el fin de que sea fácil de entender y determinar rapidamente la parte que nos interesa.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				}
+			]
+		},
+		{
+			"nombre": "Inversiones",
+			"subindicadores": [
+				{
+					"nombre": "Recursos primordiales (acta constitutiva de la empresa)",
+					"descripcion": "Indica la inversión requerida para el acta de constitución de la empresa.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				},
+
+				{
+					"nombre": "Recursos humanos",
+					"descripcion": "Indica el recurso económico necesario para poder tener al personal humano requierido.",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+				{
+					"nombre": "Materia prima",
+					"descripcion": "Indica el recurso económico necesario para conseguir la materia prima requerida para el proyecto.",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+				{
+					"nombre": "Requerimientos de Hardware",
+					"descripcion": "Indica el recurso económico necesario para cubrir los costos del hardware del proyecto (computadoras, procesadores, memorias RAM, monitores, teclados, mouse, discos duros, etc).",
+					"recomendacion": "",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 0
+				},
+				{
+					"nombre": "Requerimientos de software",
+					"descripcion": "Indica el recurso económico necesario para cubrir los costos del software del proyecto (aplicaciones, sistemas, programas, licencias, etc)",
+					"recomendacion": "Se debe de considerar la inversión en los requerimientos del proyecto, en los principales estan los recursos humanos y el software, este ultimo es de suima importancia para la mayora de proyectos que se estan desarrollando hoy en día, la industria se mueve más hacia lo digital y es necesario contemplar software y su costo en la realización e implementación de proyectos.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Servicios (agua, luz, internet, renta)",
+					"descripcion": "Indica el recurso económico necesario para solventar gastos de agua, luz, internet, renta, entre otros servicios que se necesiten.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				},
+				{
+					"nombre": "Licenciamiento de software",
+					"descripcion": "Indica la inverisón requerida para las diferentes licencias del software necesario, ya sea aplicaciones, paquetería, antivirus, etc.",
+					"recomendacion": "Es de suma importancia tener software legal para el cumplimiento de las regulaciones y la realización del proyecto, es necesario contemplar gastos en licencias de software como son: paqueterias, programas, antivirus, sistemas operativos, entre otros.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Documentación legal y registros ante el IMPI",
+					"descripcion": "Indica la inversión requerida para toda la parte legal y registros del proyecto ante alguna institución como el IMPI.",
+					"recomendacion": "Registrar nuestro proyecto ante una institución es muy importante ya que nos evita tener problemas al futuro con cuestiones de plagio, robo, clonación, entre otros. Además de que nos permite registrarnos como los autores legitimos de dicho proyecto y nos da cierta protección que nos evita problemas al ya estar en el mercado, el tomar en cuenta toda la documentación legal nos permite estar apegados al cumplimiento de las leyes.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				},
+				{
+					"nombre": "Participación de los interesados",
+					"descripcion": "Indica el recurso económico, las cantidades, porcentajes de inversipon para los interesados en el proyecto.",
+					"recomendacion": "",
+					"relevancia": 3,
+					"calificacion_max": 4,
+					"limite": 0
+				}
+			]
+		},
+		{
+			"nombre": "Costos fijos",
+			"subindicadores": [
+				{
+					"nombre": "Contemplación de costos fijos del proyecto",
+					"descripcion": "Indica los costos fijos que tendrá que cubrir el proyecto a lo largo de su desarrollo.",
+					"recomendacion": "Se debe de tomar en cuenta los diferentes costos fijos para el proyecto con el fin de saber o tener una estimación sobre los recursos economicos que se necesitarán para poder llevar a cabo su realización, contemplar costos como mobiliario y equipo, equipo de cómputo, licenciamientos, renta, servicios como agua, luz, internet. etc.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				}
+			]
+		},
+		{
+			"nombre": "Costos variables",
+			"subindicadores": [
+				{
+					"nombre": "Contemplación de costos variables del proyecto",
+					"descripcion": "Indica los costos variables que tendrá que cubrir el proyecto a lo largo de su desarrollo.",
+					"recomendacion": "Se debe de tomar en cuenta los diferentes costos variables para el proyecto con el fin de saber o tener una estimación sobre los recursos economicos y sus posibles variaciones con el paso del tiempo que se necesitarán para poder llevar a cabo su realización, contemplar costos como nominas, proveedores externos, materia prima directa, costos de distribución, etc.",
+					"relevancia": 4,
+					"calificacion_max": 5,
+					"limite": 2
+				}
+			]
+		}
+	]
+}
