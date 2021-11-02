@@ -53,11 +53,11 @@ const SideBar = () => {
 						esActivo = true;
 					}
 
-					if (rutas.length === 4) {
-						if (rutas[3] === capitulo._id.toString()) {
-							esActivo = true;
-						}
-					}
+					// if (rutas.length === 4) {
+					// 	if (rutas[3] === capitulo._id.toString()) {
+					// 		esActivo = true;
+					// 	}
+					// }
 
 					return (
 						<li
