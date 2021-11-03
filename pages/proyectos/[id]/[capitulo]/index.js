@@ -3,6 +3,7 @@ import { Field, Form, Formik, FieldArray } from "formik";
 import * as cap from "/indicadores.json";
 import { useRouter } from "next/router";
 import ruta_server from "../../../../helpers/ruta";
+import Swal from "sweetalert2";
 
 const guardarCalificaciones = async (id, capitulo, values) => {
 	try {
@@ -34,100 +35,107 @@ const Proyecto = ({ proyecto, capitulo, capitulo_teorico }) => {
 							router.query.id,
 							router.query.capitulo,
 							values
-						);
+						).then(Swal.fire("Datos actualizados", "", "success"));
 					}}
 				>
 					{({ values }) => (
 						<Form>
-							<div className="flex flex-col gap-10">
-								{capitulo_teorico.indicadores &&
-									capitulo_teorico.indicadores.map((indicador, indIndex) => (
-										<div key={indicador.nombre}>
-											<h2 className="text-2xl">{indicador.nombre}</h2>
+							<div className="flex flex-col gap-10 justify-end">
+								<div className="flex flex-col gap-10">
+									{capitulo_teorico.indicadores &&
+										capitulo_teorico.indicadores.map((indicador, indIndex) => (
+											<div key={indicador.nombre}>
+												<h2 className="text-2xl">{indicador.nombre}</h2>
 
-											<FieldArray
-												name={`indicadores[${indIndex}].subindicadores`}
-												render={() => (
-													<div className="pl-5 border-l-4 flex flex-col gap-5 pt-3">
-														{indicador.subindicadores &&
-															indicador.subindicadores.map(
-																(subindicador, subIndex) => (
-																	<div key={subindicador.nombre}>
-																		<h3 className="font-bold">
-																			{subindicador.nombre}
-																		</h3>
-																		<div className="pl-5 border-l-4">
-																			<p>{subindicador.descripcion}</p>
-																			<div>
-																				<Field
-																					name={`indicadores[${indIndex}].subindicadores[${subIndex}].calificacion`}
-																					type="range"
-																					step={
-																						subindicador.calificacion_max / 5
-																					}
-																					min="0"
-																					max={subindicador.calificacion_max}
-																					list={`lista_${subindicador.nombre}`}
-																					className="w-full"
-																				/>
-																				<datalist
-																					id={`lista_${subindicador.nombre}`}
-																					className="flex w-full justify-between"
-																				>
-																					<option value="0" label="0"></option>
-																					<option
-																						value={
+												<FieldArray
+													name={`indicadores[${indIndex}].subindicadores`}
+													render={() => (
+														<div className="pl-5 border-l-4 flex flex-col gap-5 pt-3">
+															{indicador.subindicadores &&
+																indicador.subindicadores.map(
+																	(subindicador, subIndex) => (
+																		<div key={subindicador.nombre}>
+																			<h3 className="font-bold">
+																				{subindicador.nombre}
+																			</h3>
+																			<div className="pl-5 border-l-4">
+																				<p>{subindicador.descripcion}</p>
+																				<div>
+																					<Field
+																						name={`indicadores[${indIndex}].subindicadores[${subIndex}].calificacion`}
+																						type="range"
+																						step={
 																							subindicador.calificacion_max / 5
 																						}
-																						label="1"
-																					></option>
-																					<option
-																						value={
-																							(subindicador.calificacion_max /
-																								5) *
-																							2
-																						}
-																						label="2"
-																					></option>
-																					<option
-																						value={
-																							(subindicador.calificacion_max /
-																								5) *
-																							3
-																						}
-																						label="3"
-																					></option>
-																					<option
-																						value={
-																							subindicador.calificacion_max / 4
-																						}
-																						label="4"
-																					></option>
-																					<option
-																						value={
-																							subindicador.calificacion_max
-																						}
-																						label="5"
-																					></option>
-																				</datalist>
+																						min="0"
+																						max={subindicador.calificacion_max}
+																						list={`lista_${subindicador.nombre}`}
+																						className="w-full"
+																					/>
+																					<datalist
+																						id={`lista_${subindicador.nombre}`}
+																						className="flex w-full justify-between"
+																					>
+																						<option
+																							value="0"
+																							label="0"
+																						></option>
+																						<option
+																							value={
+																								subindicador.calificacion_max /
+																								5
+																							}
+																							label="1"
+																						></option>
+																						<option
+																							value={
+																								(subindicador.calificacion_max /
+																									5) *
+																								2
+																							}
+																							label="2"
+																						></option>
+																						<option
+																							value={
+																								(subindicador.calificacion_max /
+																									5) *
+																								3
+																							}
+																							label="3"
+																						></option>
+																						<option
+																							value={
+																								subindicador.calificacion_max /
+																								4
+																							}
+																							label="4"
+																						></option>
+																						<option
+																							value={
+																								subindicador.calificacion_max
+																							}
+																							label="5"
+																						></option>
+																					</datalist>
+																				</div>
 																			</div>
 																		</div>
-																	</div>
-																)
-															)}
-													</div>
-												)}
-											></FieldArray>
-										</div>
-									))}
-							</div>
+																	)
+																)}
+														</div>
+													)}
+												></FieldArray>
+											</div>
+										))}
+								</div>
 
-							<button
-								type="submit"
-								className="self-end bg-green-100/50 w-1/5 rounded-lg text-green-500 px-6 py-2 hover:scale-95 transition font-medium"
-							>
-								Guardar
-							</button>
+								<button
+									type="submit"
+									className="self-end bg-green-100/50 w-1/5 rounded-lg text-green-500 px-6 py-2 hover:scale-95 transition font-medium"
+								>
+									Guardar
+								</button>
+							</div>
 						</Form>
 					)}
 				</Formik>
