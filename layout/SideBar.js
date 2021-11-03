@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ruta_server from "../helpers/ruta";
+import ReactTooltip from "react-tooltip";
 
 const SideBar = () => {
 	const router = useRouter();
@@ -28,29 +29,18 @@ const SideBar = () => {
 		}
 	}, [proyecto]);
 
-	// const secciones = [
-	// 	{
-	// 		nombre: "Vista general",
-	// 		ruta: "/",
-	// 	},
-	// 	{
-	// 		nombre: "Gestión de recursos del proyecto",
-	// 		ruta: "/gestion-de-recursos-del-proyecto",
-	// 	},
-	// 	{
-	// 		nombre: "Otro capítulo",
-	// 		ruta: "/otro-capitulo",
-	// 	},
-	// ];
-
 	return (
 		<ul className="flex flex-none flex-col w-16 overflow-y-auto relative border-r-2 border-gray-300">
 			<li className="h-16 flex justify-center items-center hover:bg-gray-200 cursor-pointer">
-				<button>
+				<button
+					className="h-full w-full flex justify-center items-center"
+					data-tip="Inicio"
+				>
 					<Link href="/proyectos">
 						<img src="/logo.svg" alt="" />
 					</Link>
 				</button>
+				<ReactTooltip place="right" type="dark" effect="solid" />
 			</li>
 			{secciones &&
 				secciones.map((seccion) => {
@@ -73,11 +63,12 @@ const SideBar = () => {
 								color: esActivo ? "white" : "",
 							}}
 						>
-							<button className="h-full w-full">
+							<button className="h-full w-full" data-tip={seccion.nombre}>
 								<Link href={`/proyectos/${id}/${seccion.id}`}>
 									{seccion.nombre[0]}
 								</Link>
 							</button>
+							<ReactTooltip place="right" type="dark" effect="solid" />
 						</li>
 					);
 				})}
