@@ -6,18 +6,16 @@ import ruta_server from "../../../../helpers/ruta";
 
 const guardarCalificaciones = async (id, capitulo, values) => {
 	try {
-		await axios.put(
-			`${ruta_server}/api/proyectos/${id}/${capitulo}`,
-			{
-				...values,
-			}
-		);
+		await axios.put(`${ruta_server}/api/proyectos/${id}/${capitulo}`, {
+			...values,
+		});
 	} catch (e) {
 		console.log(e);
 	}
 };
 
-const Proyecto = ({ proyecto, capitulo }) => {
+const Proyecto = ({ proyecto, capitulo, capitulo_teorico }) => {
+	console.log(capitulo_teorico);
 	const router = useRouter();
 
 	return (
@@ -42,8 +40,8 @@ const Proyecto = ({ proyecto, capitulo }) => {
 					{({ values }) => (
 						<Form>
 							<div className="flex flex-col gap-10">
-								{cap.indicadores &&
-									cap.indicadores.map((indicador, indIndex) => (
+								{capitulo_teorico.indicadores &&
+									capitulo_teorico.indicadores.map((indicador, indIndex) => (
 										<div key={indicador.nombre}>
 											<h2 className="text-2xl">{indicador.nombre}</h2>
 
@@ -141,9 +139,7 @@ const Proyecto = ({ proyecto, capitulo }) => {
 export async function getServerSideProps(context) {
 	const { id, capitulo } = context.query;
 
-	const res = await axios.get(
-		`${ruta_server}/api/proyectos/${id}/${capitulo}`
-	);
+	const res = await axios.get(`${ruta_server}/api/proyectos/${id}/${capitulo}`);
 
 	const respuesta = res.data.data;
 

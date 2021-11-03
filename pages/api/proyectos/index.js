@@ -1,6 +1,6 @@
-import { proyecto_vacio } from "../../../models/proyecto_vacio";
 import dbConnect from "../../../lib/dbConnect";
 import Proyecto from "../../../models/Proyecto";
+import Capitulo from "../../../models/Capitulo";
 
 function getRandomInt(max) {
 	return Math.floor(Math.random() * max);
@@ -8,17 +8,6 @@ function getRandomInt(max) {
 
 export default async function allProyectos(req, res) {
 	const { method } = req;
-
-	// const proyectos = [
-	// 	{ id: 1, nombre: "Kru dashboard", color: "254, 226, 226, 1" },
-	// 	{ id: 2, nombre: "Tanglee E-Shop", color: "254, 243, 199, 1" },
-	// 	{ id: 3, nombre: "Ero Notes App", color: "219, 234, 254, 1" },
-	// 	{ id: 4, nombre: "Solid UI Kit", color: "252, 231, 243, 1" },
-	// 	{ id: 5, nombre: "Art Dashboard", color: "237, 233, 254, 1" },
-	// 	{ id: 6, nombre: "Hrt Dashboard", color: "209, 250, 229, 1" },
-	// 	{ id: 7, nombre: "Trt Dashboard", color: "254, 226, 226, 1" },
-	// 	{ id: 8, nombre: "Lrt Dashboard", color: "243, 244, 246, 1" },
-	// ];
 
 	await dbConnect();
 
@@ -37,11 +26,23 @@ export default async function allProyectos(req, res) {
 				const color = `${getRandomInt(257)}, ${getRandomInt(
 					257
 				)}, ${getRandomInt(257)}, 1`;
+
+				const capitulos = await Capitulo.find({});
 				const proyecto_creado = new Proyecto({
-					...proyecto_vacio,
 					nombre,
 					color,
+					capitulos: capitulos.map((capitulo) => ({
+						nombre: capitulo.nombre,
+						indicadores: capitulo.indicadores.map((indicador) => ({
+							nombre: indicador.nombre,
+							subindicadores: indicador.subindicadores.map((subindicador) => ({
+								nombre: subindicador.nombre,
+								calificacion: 0,
+							})),
+						})),
+					})),
 				});
+
 				proyecto_creado.save();
 				res.status(200).json({ data: proyecto_creado });
 			} catch (error) {

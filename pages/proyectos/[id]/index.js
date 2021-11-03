@@ -28,8 +28,8 @@ const Proyecto = ({ proyecto, capitulos }) => {
 				</div>
 
 				<div className="flex flex-col gap-4">
-					<div className="flex gap-4">
-						<div className="w-2/5 h-96">
+					<div className="flex flex-col gap-4">
+						<div className="w-full h-96">
 							<Telaraña
 								data={proyecto.capitulos.map((capitulo) => ({
 									nombre: capitulo.nombre,
@@ -37,9 +37,9 @@ const Proyecto = ({ proyecto, capitulos }) => {
 								}))}
 							/>
 						</div>
-						<div className="flex flex-col gap-2 w-3/5">
+						<div className="flex flex-col gap-2 w-full">
 							<h2 className="text-2xl">Capítulos</h2>
-							<div className="grid grid-cols-2 grid-flow-row gap-3 w-full">
+							<div className="grid grid-cols-3 grid-flow-row gap-3 w-full">
 								{proyecto.capitulos.map((capitulo, index) => {
 									return (
 										<CapituloCard

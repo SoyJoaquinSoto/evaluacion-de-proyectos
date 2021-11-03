@@ -1,5 +1,6 @@
 import dbConnect from "../../../../../lib/dbConnect";
 import Proyecto from "../../../../../models/Proyecto";
+import Capitulo from "../../../../../models/Capitulo";
 
 export default async function handler(req, res) {
 	const { method } = req;
@@ -14,6 +15,9 @@ export default async function handler(req, res) {
 				const capituloEncontrado = proyectoEncontrado.capitulos.find((cap) => {
 					return cap._id.toString() === capitulo;
 				});
+				const [capituloTeoricoEncontrado] = await Capitulo.find({
+					nombre: capituloEncontrado.nombre,
+				});
 				res.status(200).json({
 					data: {
 						proyecto: {
@@ -21,6 +25,7 @@ export default async function handler(req, res) {
 							color: proyectoEncontrado.color,
 						},
 						capitulo: capituloEncontrado,
+						capitulo_teorico: capituloTeoricoEncontrado,
 					},
 				});
 			} catch (error) {
