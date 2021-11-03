@@ -16,7 +16,6 @@ const guardarCalificaciones = async (id, capitulo, values) => {
 };
 
 const Proyecto = ({ proyecto, capitulo, capitulo_teorico }) => {
-	console.log(capitulo_teorico);
 	const router = useRouter();
 
 	return (
